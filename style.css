@@ -1,0 +1,122 @@
+:root {
+	--colorItem: #f2f2f2;
+	--colorBorder: #1698d9;
+	--colorTitle: #fff;
+	--colorItemTitle: #000;
+	--colorText: #666666;
+}
+
+@font-face {
+	font-family: 'Trebuchet MS';
+	src: url(./fonts/trebuchetms.ttf);
+	font-style: normal;
+}
+
+.block {
+	height: 100vh;
+	width: 100vw;
+	background: url('./images/pattern.png') center / cover no-repeat;
+	display: grid;
+	place-content: center;
+}
+
+.block__title {
+	font-family: 'Exo 2', sans-serif;
+	font-size: clamp(24px, 6vw, 36px);
+	line-height: 44px;
+	text-align: center;
+	font-weight: 100;
+	color: var(--colorTitle);
+	text-shadow: 0px 1px 1px #000000;
+}
+
+.block__list {
+	margin-top: 25px;
+	width: 100vw;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	gap: clamp(40px, 4vw, 80px);
+}
+
+.item {
+	padding: 21px 56px;
+	clip-path: polygon(16% 0, 100% 0%, 100% 100%, 0 100%, 0 10%);
+	background: url('./images/cat.svg') bottom no-repeat var(--colorItem);
+	height: 509px;
+	width: 320px;
+	border: 4px solid var(--colorBorder);
+	border-radius: 12px;
+	position: relative;
+	font-family: 'Trebuchet MS';
+	font-style: normal;
+	font-weight: 700;
+	color: var(--colorItemTitle);
+}
+
+.item::after {
+	content: '';
+	display: block;
+	height: 55px;
+	width: 55px;
+	clip-path: polygon(89% 0, 100% 8%, 8% 100%, 0 86%);
+	background-color: var(--colorBorder);
+	position: absolute;
+	left: -6px;
+	top: -5px;
+}
+
+.item__excerpt {
+	font-weight: 400;
+	font-size: 16px;
+	line-height: 19px;
+	white-space: nowrap;
+}
+
+.item__title {
+	margin-top: 10px;
+	font-size: 48px;
+	line-height: 56px;
+	text-align: center;
+}
+
+.item__subTitle {
+	font-size: 24px;
+	line-height: 28px;
+}
+
+.item__text {
+	margin-top: 15px;
+	font-size: 14px;
+	line-height: 16px;
+	width: 115px;
+}
+
+.item__heft {
+	padding-top: 10px;
+	background-color: var(--colorBorder);
+	border-radius: 50px;
+	width: 80px;
+	height: 80px;
+	position: absolute;
+	bottom: 16px;
+	right: 16px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+
+	font-weight: 400;
+	font-size: 42px;
+	line-height: 22px;
+	color: var(--colorItem);
+}
+
+.item__heft dd {
+	margin-top: 7px;
+	font-size: 21px;
+}
+
+.item :is(.item__text, .item__excerpt) {
+	color: var(--colorText);
+}
