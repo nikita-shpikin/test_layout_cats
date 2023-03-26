@@ -4,6 +4,7 @@
 	--colorTitle: #fff;
 	--colorItemTitle: #000;
 	--colorText: #666666;
+	--colorHoverBorder: #d91667;
 }
 
 @font-face {
@@ -40,6 +41,7 @@
 }
 
 .item {
+	cursor: pointer;
 	padding: 21px 56px;
 	clip-path: polygon(16% 0, 100% 0%, 100% 100%, 0 100%, 0 10%);
 	background: url('./images/cat.svg') bottom no-repeat var(--colorItem);
@@ -54,6 +56,25 @@
 	color: var(--colorItemTitle);
 }
 
+.item:hover {
+	border-color: var(--colorHoverBorder);
+	transition: border-color ease-in 0.5s;
+}
+
+.item:hover .item__heft {
+	background-color: var(--colorHoverBorder);
+	transition: background-color ease-in 0.5s;
+}
+
+.item:hover::after {
+	background-color: var(--colorHoverBorder);
+	transition: background-color ease-in 0.5s;
+}
+
+.item_active {
+	border-color: var(--colorHoverBorder);
+}
+
 .item::after {
 	content: '';
 	display: block;
@@ -64,6 +85,14 @@
 	position: absolute;
 	left: -6px;
 	top: -5px;
+}
+
+.item_active::after {
+	background-color: var(--colorHoverBorder);
+}
+
+.item_active .item__heft {
+	background-color: var(--colorHoverBorder);
 }
 
 .item__excerpt {
@@ -112,11 +141,11 @@
 	color: var(--colorItem);
 }
 
-.item__heft dd {
+.item__kg {
 	margin-top: 7px;
 	font-size: 21px;
 }
 
-.item :is(.item__text, .item__excerpt) {
+.item:is(.item__text, .item__excerpt) {
 	color: var(--colorText);
 }
