@@ -16,7 +16,7 @@
 .block {
 	height: 100vh;
 	width: 100vw;
-	background: url('./images/pattern.png') center / cover no-repeat;
+	background: url('./images/pattern.png') top / cover no-repeat;
 	display: grid;
 	place-content: center;
 }
@@ -40,7 +40,7 @@
 	gap: clamp(40px, 4vw, 80px);
 }
 
-.item {
+.block__item {
 	cursor: pointer;
 	padding: 21px 56px;
 	clip-path: polygon(16% 0, 100% 0%, 100% 100%, 0 100%, 0 10%);
@@ -56,26 +56,26 @@
 	color: var(--colorItemTitle);
 }
 
-.item:hover {
+.block__item:hover {
 	border-color: var(--colorHoverBorder);
 	transition: border-color ease-in 0.5s;
 }
 
-.item:hover .item__heft {
+.block__item:hover .block__heft {
 	background-color: var(--colorHoverBorder);
 	transition: background-color ease-in 0.5s;
 }
 
-.item:hover::after {
+.block__item:hover::after {
 	background-color: var(--colorHoverBorder);
 	transition: background-color ease-in 0.5s;
 }
 
-.item_active {
+.block__item_active {
 	border-color: var(--colorHoverBorder);
 }
 
-.item::after {
+.block__item::after {
 	content: '';
 	display: block;
 	height: 55px;
@@ -87,41 +87,41 @@
 	top: -5px;
 }
 
-.item_active::after {
+.block__item_active::after {
 	background-color: var(--colorHoverBorder);
 }
 
-.item_active .item__heft {
+.block__item_active .block__heft {
 	background-color: var(--colorHoverBorder);
 }
 
-.item__excerpt {
+.block__excerpt {
 	font-weight: 400;
 	font-size: 16px;
 	line-height: 19px;
 	white-space: nowrap;
 }
 
-.item__title {
+.block__itemTitle {
 	margin-top: 10px;
 	font-size: 48px;
 	line-height: 56px;
 	text-align: center;
 }
 
-.item__subTitle {
+.block__itemSubTitle {
 	font-size: 24px;
 	line-height: 28px;
 }
 
-.item__text {
+.block__itemText {
 	margin-top: 15px;
 	font-size: 14px;
 	line-height: 16px;
 	width: 115px;
 }
 
-.item__heft {
+.block__heft {
 	padding-top: 10px;
 	background-color: var(--colorBorder);
 	border-radius: 50px;
@@ -141,11 +141,33 @@
 	color: var(--colorItem);
 }
 
-.item__kg {
+.block__kg {
 	margin-top: 7px;
 	font-size: 21px;
 }
 
-.item:is(.item__text, .item__excerpt) {
+.block__slogan {
+	margin-top: 15px;
+	font-family: 'Trebuchet MS';
+	font-style: normal;
+	font-weight: 400;
+	font-size: 13px;
+	line-height: 15px;
+	text-align: center;
+	color: var(--colorTitle);
+}
+
+.block__link {
+	color: var(--colorBorder);
+	border-bottom: dashed var(--colorBorder) 1px;
+}
+
+:is(.block__itemText, .block__excerpt) {
 	color: var(--colorText);
+}
+
+@media screen and (max-width: 1043px) {
+	.block {
+		height: 100%;
+	}
 }
