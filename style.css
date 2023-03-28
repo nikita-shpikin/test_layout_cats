@@ -182,6 +182,8 @@
 	line-height: 15px;
 	text-align: center;
 	color: var(--colorTitle);
+
+	animation: text 0.5s linear;
 }
 
 .block__slogan_disabled {
@@ -195,6 +197,18 @@
 
 :is(.block__itemText, .block__excerpt) {
 	color: var(--colorText);
+}
+
+@keyframes text {
+	0% {
+		opacity: 0;
+	}
+	50% {
+		opacity: 0.5;
+	}
+	100% {
+		opacity: 1;
+	}
 }
 
 @media screen and (max-width: 1043px) {
