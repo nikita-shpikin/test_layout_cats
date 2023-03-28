@@ -6,6 +6,7 @@
 	--colorText: #666666;
 	--colorHoverBorder: #d91667;
 	--colorDisabled: #b3b3b3;
+	--colorDisabledSlogan: #ffff66;
 }
 
 @font-face {
@@ -181,6 +182,10 @@
 	line-height: 15px;
 	text-align: center;
 	color: var(--colorTitle);
+}
+
+.block__slogan_disabled {
+	color: var(--colorDisabledSlogan);
 }
 
 .block__link {

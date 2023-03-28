@@ -1,10 +1,18 @@
-const itemsActive = document.querySelectorAll('.block__item_active');
 const items = document.querySelectorAll('.block__item');
+const itemsActive = document.querySelectorAll('.block__item_active');
+const itemDisabled = document.querySelectorAll('.block__item_disabled');
 const blockSlogans = document.querySelectorAll('.block__slogan');
+const arrSloganDisabled = [
+	'Печалька, с фуа-гра закончился.',
+	'Печалька, с рыбой закончился.',
+	'Печалька, с курой закончился.',
+];
 
 document.addEventListener('DOMContentLoaded', function () {
-	itemsActive.forEach((item, index) => {
-		addSlogan(index);
+	blockSlogans.forEach((item, index) => {
+		if (item.classList.contains('block__slogan_disabled')) {
+			item.textContent = arrSloganDisabled[index];
+		}
 	});
 });
 
@@ -25,18 +33,19 @@ function addActiveClass(index) {
 
 function removeSlogan() {
 	blockSlogans.forEach(slogan => {
-		slogan.innerHTML =
-			'Чего сидишь? Порадуй котэ, <a class="block__link">купи.</a>';
+		if (!slogan.classList.contains('block__slogan_disabled')) {
+			slogan.innerHTML =
+				'Чего сидишь? Порадуй котэ, <a class="block__link">купи.</a>';
+		}
 	});
 }
 
 function addSlogan(index) {
-	if (index === 0) {
-		blockSlogans[index].textContent = 'Печень утки разварная с артишоками.';
-	} else if (index === 1) {
-		blockSlogans[index].textContent =
-			'Головы щучьи с чесноком да свежайшая сёмгушка.';
-	} else {
-		blockSlogans[index].textContent = 'Филе из цыплят с трюфелями в бульоне.';
-	}
+	const slogan = [
+		'Печень утки разварная с артишоками.',
+		'Головы щучьи с чесноком да свежайшая сёмгушка.',
+		'Филе из цыплят с трюфелями в бульоне.',
+	];
+
+	blockSlogans[index].textContent = slogan[index];
 }
