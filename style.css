@@ -5,6 +5,7 @@
 	--colorItemTitle: #000;
 	--colorText: #666666;
 	--colorHoverBorder: #d91667;
+	--colorDisabled: #b3b3b3;
 }
 
 @font-face {
@@ -93,6 +94,31 @@
 
 .block__item_active .block__heft {
 	background-color: var(--colorHoverBorder);
+}
+
+.block__item_disabled {
+	user-select: none;
+	filter: invert(30%) brightness(130%);
+	pointer-events: none;
+	border-color: var(--colorDisabled);
+}
+
+:is(
+		.block__item_disabled .block__excerpt,
+		.block__item_disabled .block__itemTitle,
+		.block__item_disabled .block__itemSubTitle,
+		.block__item_disabled .block__itemText,
+
+	) {
+	color: var(--colorDisabled);
+}
+
+.block__item_disabled .block__heft {
+	background-color: var(--colorDisabled);
+}
+
+.block__item_disabled::after {
+	background-color: var(--colorDisabled);
 }
 
 .block__excerpt {
