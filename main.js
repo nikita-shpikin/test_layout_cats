@@ -5,6 +5,11 @@ const sloganArr = [
 	'Головы щучьи с чесноком да свежайшая сёмгушка.',
 	'Филе из цыплят с трюфелями в бульоне.',
 ];
+const sloganDisabledArr = [
+	'Печалька, с фуа-гра закончился.',
+	'Печалька, с рыбой закончился.',
+	'Печалька, с курой закончился.',
+];
 
 items.forEach((item, index) => {
 	item.addEventListener('click', () => {
@@ -13,10 +18,14 @@ items.forEach((item, index) => {
 });
 
 slogan.forEach((item, index) => {
-	item.addEventListener('click', e => {
-		e.preventDefault();
-		toggleActiveCard(index);
-	});
+	if (!slogan[index].classList.contains('block__slogan_disabled')) {
+		item.addEventListener('click', e => {
+			e.preventDefault();
+			toggleActiveCard(index);
+		});
+	} else {
+		slogan[index].innerHTML = sloganDisabledArr[index];
+	}
 });
 
 function toggleActiveCard(index) {
