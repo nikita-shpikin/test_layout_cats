@@ -193,6 +193,11 @@
 .block__link {
 	color: var(--colorBorder);
 	border-bottom: dashed var(--colorBorder) 1px;
+	cursor: pointer;
+}
+
+li:last-child .block__slogan {
+	margin-bottom: 30px;
 }
 
 :is(.block__itemText, .block__excerpt) {
