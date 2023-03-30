@@ -38,5 +38,3 @@ function toggleActiveCard(index) {
 			'Чего сидишь? Порадуй котэ, <a class="block__link">купи.</a>';
 	}
 }
-
-console.log('Загрузилось!');
